@@ -19,7 +19,7 @@
 
 - name: Config inventory
   template:
-      dest: /root/ansible-tower-setup-*/inventory
+      dest: /root/ansible-tower-setup-3.2.3/inventory
       src: inventory.j2
 
 - name: Install ansible-HA
