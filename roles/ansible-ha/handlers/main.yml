@@ -1,0 +1,8 @@
+---
+- name: wait to be ready
+  uri:
+    url: https://tower1.${GUID}.example.opentlc.com/
+    validate_certs: no
+    status_code: 200
+  retries: 100
+  delay: 5

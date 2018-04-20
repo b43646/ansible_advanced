@@ -1,0 +1,27 @@
+---
+
+- name: Download openstack.pem
+  get_url:
+    url:  http://www.opentlc.com/download/ansible_bootcamp/openstack_keys/openstack.pem
+    dest: ~/.ssh/openstack.pem
+    mode: 0400
+
+- name: Download ansible-tower archive
+  unarchive:
+    src: https://releases.ansible.com/ansible-tower/setup/ansible-tower-setup-latest.tar.gz
+    dest: /root/
+    remote_src: yes
+
+- name: Config inventory
+  template:
+      dest: /root/
+      src: ssh.j2
+
+- name: Config inventory
+  template:
+      dest: /root/ansible-tower-setup-*/inventory
+      src: inventory.j2
+
+- name: Install ansible-HA
+  shell: /root/ansible-tower-setup-*/setup.sh
+  notify: wait to be ready
