@@ -23,5 +23,5 @@
       src: inventory.j2
 
 - name: Install ansible-HA
-  shell: /root/ansible-tower-setup-*/setup.sh
+  shell: /root/ansible-tower-setup-3.2.3/setup.sh
   notify: wait to be ready
