@@ -1,22 +1,14 @@
 [tower]
-tower1.{{ GUID }}.internal
-tower2.{{ GUID }}.internal
-tower3.{{ GUID }}.internal
+tower1.{{GUID}}.internal
+tower2.{{GUID}}.internal
+tower3.{{GUID}}.internal
 [database]
-support1.{{ GUID }}.internal
-
-[isolated_group_osp]
-
-workstation-{{ OSP_GUID }}.rhpds.opentlc.com ansible_user='cloud-user' ansible_ssh_private_key_file='~/.ssh/openstack.pem'
-
-[isolated_group_osp:vars]
-controller=tower
-
+support1.{{GUID}}.internal
 [all:vars]
 ansible_become=true
 admin_password='r3dh4t1!'
 
-pg_host='support1.{{ GUID }}.internal'
+pg_host='support1.{{GUID}}.internal'
 pg_port='5432'
 
 pg_database='awx'
